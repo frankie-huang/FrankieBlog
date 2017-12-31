@@ -1,0 +1,6 @@
+{
+    "require": {
+        "swiftmailer/swiftmailer": "^6.0",
+        "workerman/workerman": "^3.5"
+    }
+}

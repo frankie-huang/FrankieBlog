@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="Public/js/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="Public/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="Public/css/blog.css" rel="stylesheet">
+    <link href="Public/css/toastr.min.css" rel="stylesheet" />
+    <script src="Public/js/toastr.min.js"></script>
+    <title>About Me - Frankie's Blog</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="icon" href="Public/img/frankie.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="Public/img/frankie.ico" type="image/x-icon">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="Public/css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="Public/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="Public/js/ie-emulation-modes-warning.js"></script>
+    <link rel="stylesheet" href="Public/font-awesome/css/font-awesome.css">
+
+    <!-- <link rel="stylesheet" href="editor.md/examples/css/style.css" /> -->
+    <link rel="stylesheet" href="editor.md/css/editormd.css" />
+    <script src="editor.md/examples/js/zepto.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
+
+    <!-- include summernote -->
+    <link rel="stylesheet" href="Public/summernote/dist/summernote.css">
+    <script type="text/javascript" src="Public/summernote/dist/summernote.js"></script>
+
+    <!-- rewrite Markdown CSS(Cmd Markdown Style) from https://github.com/wakaryry/editorMd -->
+    <link href="Public/css/custom.css" rel="stylesheet">
+
+    <link href="Public/css/back_to_top.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="top_nav" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+            <a class="navbar-brand" href="./index.html">Frankie's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="./index.html">Home</a></li>
+                <li class="active"><a href="./about.html">About Me</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" id="keywords" class="form-control" placeholder="请输入关键词">
+                </div>
+                <button type="submit" id="submit_keywords" class="btn btn-primary">Search</button>
+            </form>
+            <p class="navbar-right"></p>
+            <form class="navbar-form navbar-right hide" id="login_or_register">
+                <a class="btn btn-primary click_to_log">登录</a>
+                <a class="btn btn-success click_to_reg">注册</a>
+            </form>
+            <form class="navbar-form navbar-right hide" id="logout">
+                <a class="btn btn-danger" onclick="logout()">退出登录</a>
+            </form>
+            <ul class="nav navbar-nav navbar-right hide" id="say_hello">
+                <li><a href="./home.html">Hello, <span id="username">Friend!</span>&nbsp;<span id="message_number" class="badge"></span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" style="z-index:0">
+                <div class="row placeholders">
+                    <div class="col-xs-11 col-sm-11 placeholder">
+                        <img src="Public/img/frankie.ico" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+                        <h4>Frankie</h4>
+                        <span class="text-muted">这个人很懒，什么都没有留下~</span>
+                    </div>
+                </div>
+                <ul class="nav nav-sidebar">
+                    <li class="active click_to_active"><a href="#info">简介</a></li>
+                    <li class="hide click_to_active"><a href="#skill">技能</a></li>
+                    <li class="click_to_active"><a href="#hobbies">兴趣</a></li>
+                    <li class="click_to_active"><a href="#about">关于</a></li>
+                </ul>
+                <ul class="nav nav-sidebar">
+                    <li><a href="https://github.com/frankie-huang" target="_blank"><i class="fa fa-github" aria-hidden="true" style="font-size:2em"></i>&nbsp;Github</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100012276579506" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true" style="font-size:2em"></i>&nbsp;Facebook</a></li>
+                    <li class="click_to_active"><a href="#send_to_me"><i class="fa fa-envelope-o" aria-hidden="true" style="font-size:1.8em"></i>&nbsp;私信我</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header hide">The Blog of A Non-Fontend-Programmer's Programmer</h1>
+                <p id="info"></p>
+                <br/>
+                <br/>
+                <h2 class="sub-header"><i class="fa fa-address-card" aria-hidden="true">&nbsp;Introduction</i></h2>
+                <p>
+                    <ul style="font-size:1.5em">
+                        <li>学校：华南理工高级中学</li>
+                        <li>专业：皇家一万六学院</li>
+                        <li>在读：三年级</li>
+                        <li>选修：算命方向</li>
+                        <li class="hide">目标：成为一个牛逼的“码农”</li>
+                    </ul>
+                </p>
+                <br/>
+                <br/>
+                <br/>
+                <p id="skill"></p>
+                <h2 class="hide sub-header"><i class="fa fa-code" aria-hidden="true">&nbsp;Skill</i></h2>
+                <p>
+                    <ul style="font-size:1.5em" class="hide">
+                        <li>
+                            <div class="col-sm-3 col-md-2">
+                                PHP
+                            </div>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <div class="col-sm-3 col-md-2">
+                                Python
+                            </div>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <div class="col-sm-3 col-md-2">
+                                JavaScript
+                            </div>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                            <div class="col-sm-3 col-md-2">
+                                SQL
+                            </div>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </li>
+                    </ul>
+                </p>
+                <br/>
+                <br/>
+                <br/>
+                <p id="hobbies"></p>
+                <br/>
+                <br/>
+                <h2 class="sub-header"><i class="fa fa-linux" aria-hidden="true">&nbsp;Hobbies</i></h2>
+                <p>
+                    <ul style="font-size:1.5em">
+                        <li class="hide">打羽毛球</li>
+                        <li class="hide">看电影</li>
+                        <li class="hide">追动漫</li>
+                        <li>Learning</li>
+                        <li>Coding</li>
+                        <li>Coding</li>
+                        <li>Coding</li>
+                        <li>Etc.</li>
+                    </ul>
+                </p>
+                <br/>
+                <br/>
+                <br/>
+                <p id="about"></p>
+                <br/>
+                <br/>
+                <h2 class="sub-header"><i class="fa fa-book" aria-hidden="true">&nbsp;About</i></h2>
+                <h3>
+                    <p>
+                        <ul>
+                            <li><a href="http://www.bootcss.com/">Bootstrap</a>作为前端框架（脚手架）</li>
+                            <li><s><a href="http://meepops.lanecn.com/">MeepoPS</a>作为PHP-SOCKET框架</s></li>
+                            <li><a href="http://www.workerman.net/">Workerman</a>作为PHP-SOCKET框架</li>
+                            <li><a href="http://fontawesome.io/icons/">Font Awesome</a>图标库</li>
+                            <li><a href="https://github.com/pandao/editor.md">Editor.md</a>作为md编辑器插件</li>
+                            <li>前端编程语言为HTML、CSS、JavaScript</li>
+                            <li>后台使用PHP<s>和Python</s></li>
+                        </ul>
+                    </p>
+                </h3>
+                <br/>
+                <br/>
+                <br/>
+                <p id="send_to_me"></p>
+                <br/>
+                <br/>
+                <h2 class="sub-header"><i class="fa fa-envelope-o" aria-hidden="true">&nbsp;Send To Me</i></h2>
+                <div id="layout">
+                    <!-- <div class="editormd" id="test-editormd">
+                        <textarea></textarea>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-primary pull-right" onclick="send_message()">Send</button> -->
+                </div>
+                <h2 id="cant_send_to_me">请先<a class="click_to_log">登录</a></h2>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+
+        </div>
+    </div>
+    <footer class="blog-footer">
+        <p>Copyright <i class="fa fa-copyright" aria-hidden="true"></i><span id="year"></span></a> by <a href="https://github.com/frankie-huang">@Frankie</a>.</p>
+        <p id="ICP"></p>
+        <!-- <p><a href="#">Back to top</a></p> -->
+    </footer>
+
+    <script src="Public/js/to_log_reg.js"></script>
+    <script src="Public/js/html_code.js"></script>
+    <script src="Public/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="Public/js/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="Public/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+        toastr.options.positionClass = 'toast-bottom-right';
+    </script>
+    <script src="Public/js/footer.js"></script>
+    <script src="Public/js/islogin.js"></script>
+    <script src="Public/js/about.js"></script>
+</body>
+
+</html>

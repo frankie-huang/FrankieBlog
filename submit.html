@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="Public/js/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="Public/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="Public/css/blog.css" rel="stylesheet">
+    <link href="Public/css/toastr.min.css" rel="stylesheet" />
+    <script src="Public/js/toastr.min.js"></script>
+    <title>Submit - Frankie's Blog</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="icon" href="Public/img/frankie.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="Public/img/frankie.ico" type="image/x-icon">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="Public/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="Public/js/ie-emulation-modes-warning.js"></script>
+    <link rel="stylesheet" href="Public/font-awesome/css/font-awesome.css">
+
+    <!-- <link rel="stylesheet" href="editor.md/examples/css/style.css" /> -->
+    <link rel="stylesheet" href="editor.md/css/editormd.css" />
+    <script src="editor.md/examples/js/zepto.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
+
+    <!-- rewrite Markdown CSS(Cmd Markdown Style) from https://github.com/wakaryry/editorMd -->
+    <link href="Public/css/custom.css" rel="stylesheet">
+
+    <!-- 防XSS注入 来自：http://jsxss.com/zh/index.html -->
+    <script src="Public/js/xss.js"></script>
+
+    <link href="Public/css/back_to_top.css" rel="stylesheet">
+    <style>
+        .widget .tag-cloud a {
+            border: 1px solid #ebebeb;
+            padding: 2px 7px;
+            color: #959595;
+            line-height: 1.5em;
+            display: inline-block;
+            margin: 0 7px 7px 0;
+            -webkit-transition: all 0.2s ease;
+            -o-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+        
+        .widget .tag-cloud a:hover {
+            color: #ffffff;
+            background: #2e6da4;
+            border: 1px solid #2e6da4;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="top_nav" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+            <a class="navbar-brand" href="./index.html">Frankie's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Me</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" id="keywords" class="form-control" placeholder="请输入关键词">
+                </div>
+                <button type="submit" id="submit_keywords" class="btn btn-primary">Search</button>
+            </form>
+            <p class="navbar-right"></p>
+            <form class="navbar-form navbar-right hide" id="login_or_register">
+                <a class="btn btn-primary click_to_log">登录</a>
+                <a class="btn btn-success click_to_reg">注册</a>
+            </form>
+            <form class="navbar-form navbar-right hide" id="logout">
+                <a class="btn btn-danger" onclick="logout()">退出登录</a>
+            </form>
+            <ul class="nav navbar-nav navbar-right hide" id="say_hello">
+                <li><a href="./home.html">Hello, <span id="username">Friend!</span>&nbsp;<span id="message_number" class="badge"></span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+
+    <form class="form-horizontal" style="position:relative;width:90%;top:60px">
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label" style="color:#7a9cf8;font-size:1.3em">Title<span style="color:red">*</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="title" placeholder="请输入博客标题(长度不能超过300)">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label" style="color:#7a9cf8;font-size:1.3em">Author<span style="color:red">*</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control hide" style="display:inline;width:40%" id="fill_name" placeholder="长度不能超过100">
+                <label id="author_name" for="text" class="control-label" style="font-size:1.3em"></label>
+                <button id="modify_name" value=0 class="btn btn-primary">自定义笔名</button>
+                <a id="cancel" class="hide" href="javascript:void(0);">取消</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label" style="color:#7a9cf8;font-size:1.3em">Cover</label>
+            <div class="col-sm-10">
+                <input id="upload_cover" type="file" class="btn btn-default hide" accept="image/*">
+                <button id="button_upload_cover" type="button" class="btn btn-default">上传封面图片（可选）</button>
+                <button id="button_cancel_cover" type="button" class="btn btn-danger hide">取消封面图</button>
+                <div class="row placeholders">
+                    <div class="col-xs-11 col-sm-11 placeholder">
+                        <img class="img-responsive hide" src="" id="cover_picture" title="点击修改" height="300" alt="图片加载失败"> &nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label" style="color:#7a9cf8;font-size:1.3em">Summary</label>
+            <div class="col-sm-10">
+                <textarea id="summary" class="form-control" rows="4" placeholder="概要描述（可选）"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="text" class="col-sm-2 control-label" style="color:#7a9cf8;font-size:1.3em">Tag</label>
+            <p></p>
+            <aside class="col-md-10 col-sm-10 sidebar">
+                <div class="widget">
+                    <div id="tag-cloud" class="content tag-cloud">
+                        <!-- <a href="/tag/jquery/">jQuery</a>
+                        <a href="/tag-cloud/">...</a> -->
+                    </div>
+                    <input type="text" id="input_add_label" style="display:inline;width:10em" class="form-control" id="exampleInputName2" placeholder="Add Label">
+                    <button type="button" id="btn_add_label" class="btn btn-primary">添加标签</button>
+                </div>
+            </aside>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button id="submit_blog" type="submit" class="btn btn-lg btn-primary pull-right">发布</button>
+                <span class="pull-right">&nbsp;</span>
+                <a id="cancel_submit_blog" href="javascript:void(0);" class="btn btn-lg btn-primary pull-right">暂不发布</a>
+            </div>
+        </div>
+    </form>
+    <p class="text-center">
+        <span>博客提交时间：</span>
+        <span id="submit_time"></span>
+        <br/>
+        <span>最后修改时间：</span>
+        <span id="last_time"></span>
+    </p>
+
+    <div style="position:relative;left:5%;width:90%">
+        <!-- <p id="mdCode" style="width:90%" class="markdown-body editormd-preview-container text-center"></p> -->
+        <p id="htmlCode" class="markdown-body editormd-preview-container text-center"></p>
+    </div>
+
+    <footer class="blog-footer">
+        <p>Copyright <i class="fa fa-copyright" aria-hidden="true"></i><span id="year"></span></a> by <a href="https://github.com/frankie-huang">@Frankie</a>.</p>
+        <p id="ICP"></p>
+        <!-- <p><a href="#">Back to top</a></p> -->
+    </footer>
+    <script src="Public/js/to_log_reg.js"></script>
+    <script src="Public/js/html_code.js"></script>
+    <script src="Public/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="Public/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript">
+        toastr.options.positionClass = 'toast-bottom-right';
+    </script>
+    <script>
+        var Request = new Object();
+        Request = GetRequest();
+
+        function GetRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        if (Request['id'] == undefined || Request['id'] < 1 || isNaN(Request['id'])) {
+            alert('非法请求！');
+            location.href = './editor.html';
+        }
+    </script>
+    <script src="Public/js/footer.js"></script>
+    <script src="Public/js/islogin.js"></script>
+    <script src="Public/js/submit.js"></script>
+</body>
+
+</html>

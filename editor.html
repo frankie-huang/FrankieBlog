@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Public/img/frankie.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="Public/img/frankie.ico" type="image/x-icon">
+    <title>Frankie's Blog</title>
+
+    <script src="Public/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="editor.md/examples/css/style.css" />
+    <link rel="stylesheet" href="editor.md/css/editormd.css" />
+    <script src="editor.md/examples/js/zepto.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
+
+    <link rel="stylesheet" href="Public/font-awesome/css/font-awesome.css">
+
+    <link href="Public/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="Public/css/toastr.min.css" rel="stylesheet" />
+    <script src="Public/js/toastr.min.js"></script>
+
+    <!-- rewrite Markdown CSS(Cmd Markdown Style) from https://github.com/wakaryry/editorMd -->
+    <link href="Public/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" id="top_nav" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./index.html">Frankie's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About Me</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" id="keywords" class="form-control" placeholder="请输入关键词">
+                </div>
+                <button type="submit" id="submit_keywords" class="btn btn-primary">Search</button>
+            </form>
+            <p class="navbar-right"></p>
+            <form class="navbar-form navbar-right hide" id="login_or_register">
+                <a class="btn btn-primary click_to_log">登录</a>
+                <a class="btn btn-success click_to_reg">注册</a>
+            </form>
+            <form class="navbar-form navbar-right hide" id="logout">
+                <a class="btn btn-danger" onclick="logout()">退出登录</a>
+            </form>
+            <ul class="nav navbar-nav navbar-right hide" id="say_hello">
+                <li><a href="./home.html">Hello, <span id="username">Friend!</span>&nbsp;<span id="message_number" class="badge"></span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="layout">
+        <div id="test-editormd">
+            <textarea id="mdtextarea" style="display:none;"></textarea>
+        </div>
+        <button id="submit" style="position:relative;right:5%" value="-1" disabled type="button" class="btn btn-lg btn-primary pull-right">请先登录</button>
+    </div>
+    <script src="Public/js/to_log_reg.js"></script>
+
+    <script type="text/javascript">
+        var Request = new Object();
+        Request = GetRequest();
+
+        function GetRequest() {
+            var url = location.search;
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+        toastr.options.positionClass = 'toast-bottom-center';
+        toastr.options.timeOut = '10000';
+        var testEditor;
+        testEditor = editormd("test-editormd", {
+            width: "90%",
+            height: 640,
+            path: 'editor.md/lib/',
+            codeFold: true,
+            //syncScrolling : false,
+            saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
+            searchReplace: true,
+            //watch : false,                // 关闭实时预览
+            htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启    
+            //toolbar  : false,             //关闭工具栏
+            //previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
+            emoji: true,
+            taskList: true,
+            tocm: true, // Using [TOCM]
+            tex: true, // 开启科学公式TeX语言支持，默认关闭
+            flowChart: true, // 开启流程图支持，默认关闭
+            sequenceDiagram: true, // 开启时序/序列图支持，默认关闭,
+            //dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
+            //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
+            //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
+            //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
+            //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+            imageUpload: true,
+            imageFormats: ["jpg", "jpeg", "pjpeg", "ico", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "editor.md/examples/php/upload.php",
+            onload: function() {
+                console.log('onload', this);
+                //this.fullscreen();
+                //this.unwatch();
+                //this.watch().fullscreen();
+                //this.setMarkdown("#PHP");
+                //this.width("100%");
+                //this.height(480);
+                //this.resize("100%", 640);
+            }
+        });
+    </script>
+    <script src="Public/js/bootstrap.min.js"></script>
+    <script src="Public/js/islogin_editor.js"></script>
+</body>
+
+</html>

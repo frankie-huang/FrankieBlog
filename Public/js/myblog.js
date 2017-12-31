@@ -1,0 +1,1 @@
+function do_other_thing_islogin(){$("#myblog_body").css("min-height",$(window).height());$("footer").removeClass("hide");init_myblog()}function init_myblog(){}

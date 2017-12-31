@@ -1,0 +1,21 @@
+#!/bin/bash
+uglifyjs about.js -m -o about.js
+uglifyjs footer.js -m -o footer.js
+uglifyjs home.js -m -o home.js
+uglifyjs index.js -m -o index.js
+uglifyjs islogin_admin.js -m -o islogin_admin.js
+uglifyjs islogin_blog.js -m -o islogin_blog.js
+uglifyjs islogin_editor.js -m -o islogin_editor.js
+uglifyjs islogin_home.js -m -o islogin_home.js
+uglifyjs islogin_tmpblog.js -m -o islogin_tmpblog.js
+uglifyjs islogin.js -m -o islogin.js
+uglifyjs login.js -m -o login.js
+uglifyjs md5.js -m -o md5.js
+uglifyjs myblog.js -m -o myblog.js
+uglifyjs search.js -m -o search.js
+uglifyjs show_tag.js -m -o show_tag.js
+uglifyjs showMenu.js -m -o showMenu.js
+uglifyjs submit.js -m -o submit.js
+uglifyjs to_log_reg_blog.js -m -o to_log_reg_blog.js
+uglifyjs to_log_reg.js -m -o to_log_reg.js
+uglifyjs xss.js -m -o xss.js
