@@ -176,7 +176,7 @@ function ret_template($blog_id, $content)
             </ul>
         </div>
     </nav>
-    <div id="blog-body" style="position:relative;left:5%;width:90%;top:60px;margin-bottom:60px">
+    <div id="blog-body" style="position:relative;margin:0 auto;width:90%;max-width:60em;top:60px;margin-bottom:60px">
         <!-- 内容目录begin -->
         <div class="in-page-preview pull-right">
             <a href="javascript:void(0)" title="内容目录" value=0 onclick="slideDownMenu()">
@@ -205,7 +205,7 @@ function ret_template($blog_id, $content)
         </div>
         <p></p>
         <div class="row">
-            <img style="position:relative;left:5%;width:90%;max-height:500px" class="img-responsive" src="" id="cover_picture" alt="图片加载失败">
+            <img style="margin:0 auto;width:90%;max-height:500px" class="img-responsive" src="" id="cover_picture" alt="图片加载失败">
         </div>
         <div class="text-center markdown-body editormd-preview-container">
 EOF;
@@ -399,7 +399,7 @@ function ret_tmp_template($blog_id)
         </div>
         <!-- /.navbar-collapse -->
     </nav>
-    <div id="blog-body" style="position:relative;left:5%;width:90%;top:60px;margin-bottom:60px">
+    <div id="blog-body" style="position:relative;margin:0 auto;width:90%;max-width:60em;top:60px;margin-bottom:60px">
         <!-- 内容目录begin -->
         <div class="in-page-preview pull-right">
             <a href="javascript:void(0)" title="内容目录" value=0 onclick="slideDownMenu()">
