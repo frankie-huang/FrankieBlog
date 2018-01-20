@@ -29,7 +29,7 @@ function is_login($post)
         $return['weight']=$_SESSION['weight'];
         ret_status($return);
     }
-    recordFootprint($post['userAgent']);
+    recordFootprint();
     ret_status($return, -2, '未登录');
 }
 
@@ -78,7 +78,7 @@ function is_login_home($post)
         $return['weight']=$_SESSION['weight'];
         ret_status($return);
     }
-    recordFootprint($post['userAgent']);
+    recordFootprint();
     ret_status($return, -2, '未登录');
 }
 
@@ -118,7 +118,7 @@ function is_login_editor($post)
         $return['weight']=$_SESSION['weight'];
         ret_status($return);
     }
-    recordFootprint($post['userAgent']);
+    recordFootprint();
     ret_status($return, -2, '未登录');
 }
 
@@ -163,7 +163,7 @@ function is_login_tmpblog($post)
         $return['weight']=$_SESSION['weight'];
         ret_status($return);
     }
-    recordFootprint($post['userAgent']);
+    recordFootprint();
     ret_status($return, -2, '未登录');
 }
 
@@ -199,7 +199,7 @@ function is_login_admin($post)
         $return['weight']=$_SESSION['weight'];
         ret_status($return);
     }
-    recordFootprint($post['userAgent']);
+    recordFootprint();
     ret_status($return, -2, '未登录');
 }
 
@@ -217,14 +217,14 @@ function login($post)
     if (!password_verify($post['password'], $get_user['password'])) {
         ret_status($return, -2, '密码错误');
     }
-    if (!isset($post['userAgent'])) {
+    if (empty($_SERVER['HTTP_USER_AGENT'])) {
         ret_status($return, -3, '无法获取浏览器信息');
     }
     $data=array(
         'u_id'=>$get_user['u_id'],
         'ip'=>get_client_ip(0, true),
-        'browser'=>returnBrowser($post['userAgent']),
-        'userAgent'=>$post['userAgent'],
+        'browser'=>returnBrowser($_SERVER['HTTP_USER_AGENT']),
+        'userAgent'=>$_SERVER['HTTP_USER_AGENT'],
         'record_time'=>date('Y/m/d H:i:s'),
     );
     if (M('device')->add($data)===false) {
@@ -1087,8 +1087,9 @@ function returnBrowser($userAgent)
 }
 
 //记录游客足迹（ip和浏览器数据）
-function recordFootprint($userAgent)
+function recordFootprint()
 {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'];
     $B_name = returnBrowser($userAgent);
     $data = array(
         'ip'=>get_client_ip(0, true),

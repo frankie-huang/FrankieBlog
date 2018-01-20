@@ -68,7 +68,7 @@
     </nav>
 
     <div id="layout">
-        <div id="test-editormd">
+        <div id="test-editormd" style="min-height: 45em">
             <textarea id="mdtextarea" style="display:none;"></textarea>
         </div>
         <button id="submit" style="position:relative;right:5%" value="-1" disabled type="button" class="btn btn-lg btn-primary pull-right">请先登录</button>
@@ -94,9 +94,10 @@
         toastr.options.positionClass = 'toast-bottom-center';
         toastr.options.timeOut = '10000';
         var testEditor;
+        let EditorHeight = $(window).outerHeight() * 0.9;
         testEditor = editormd("test-editormd", {
             width: "90%",
-            height: 640,
+            height: EditorHeight,
             path: 'editor.md/lib/',
             codeFold: true,
             //syncScrolling : false,
