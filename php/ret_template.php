@@ -15,7 +15,7 @@ function ret_template($blog_id, $content)
 
     <title>Frankie's Blog</title>
 
-    <script src="../../Public/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
     <link href="../../Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <script src="../../Public/js/ie-emulation-modes-warning.js"></script>
@@ -28,7 +28,7 @@ function ret_template($blog_id, $content)
     <script src="../../Public/js/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="../../Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Public/font-awesome/css/font-awesome.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
@@ -234,7 +234,7 @@ EOF;
         toastr.options.positionClass = 'toast-bottom-right';
         var testEditor;
     </script>
-    <script src="../../Public/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_blog.js"></script>
@@ -266,7 +266,7 @@ function ret_tmp_template($blog_id)
 
     <title>Frankie's Blog</title>
 
-    <script src="../../Public/js/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
     <link href="../../Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <script src="../../Public/js/ie-emulation-modes-warning.js"></script>
@@ -278,7 +278,7 @@ function ret_tmp_template($blog_id)
     <script src="../../Public/js/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="../../Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Public/font-awesome/css/font-awesome.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
@@ -426,7 +426,7 @@ function ret_tmp_template($blog_id)
         toastr.options.positionClass = 'toast-bottom-right';
     </script>
     <!-- Bootstrap JavaScript -->
-    <script src="../../Public/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_tmpblog.js"></script>

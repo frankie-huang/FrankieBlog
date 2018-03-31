@@ -3,8 +3,8 @@ header('content-type:text/html;charset=utf-8');
 require_once('Model/PDO_MySQL.class.php');
 require_once('Model/config.php');
 echo '<link rel="icon" href="Public/img/frankie.ico" type="image/x-icon">';
-echo '<link href="Public/css/bootstrap.min.css" rel="stylesheet">';
-echo '<script src="Public/js/jquery.min.js"></script>';
+echo '<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">';
+echo '<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>';
 $script1=<<<EOF
 <script>
 var i = 3;

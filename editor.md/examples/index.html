@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title Page</title>
 
-    <link rel="stylesheet" href="../../Public/css/bootstrap.min.css" />
-    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="../css/editormd.css" />
     <script src="js/zepto.min.js"></script>
@@ -72,7 +72,7 @@
         document.getElementById("submit").onclick = function() {
             let htmlCode = document.getElementsByClassName("editormd-preview-container")[0].innerHTML;
             let mdCode = testEditor.getMarkdown();
-            document.getElementById('content').innerHTML=htmlCode;
+            document.getElementById('content').innerHTML = htmlCode;
             console.log(htmlCode);
         }
         document.getElementsByTagName('textarea')[0].innerHTML = "##HELLO keke";
