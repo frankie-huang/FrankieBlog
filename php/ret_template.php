@@ -24,12 +24,12 @@ function ret_template($blog_id, $content)
     <link href="../../Public/css/comment.css" rel="stylesheet">
 
     <!-- toastr CSS JS -->
-    <link href="../../Public/css/toastr.min.css" rel="stylesheet" />
-    <script src="../../Public/js/toastr.min.js"></script>
+    <link href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../Public/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
     <link rel="stylesheet" href="../../editor.md/css/editormd.css" />
@@ -274,12 +274,12 @@ function ret_tmp_template($blog_id)
     <link href="../../Public/css/blog.css" rel="stylesheet">
     
     <!-- toastr CSS JS -->
-    <link href="../../Public/css/toastr.min.css" rel="stylesheet" />
-    <script src="../../Public/js/toastr.min.js"></script>
+    <link href="../../https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="../../https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../Public/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
     <link rel="stylesheet" href="../../editor.md/css/editormd.css" />
