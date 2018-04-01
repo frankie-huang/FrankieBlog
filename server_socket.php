@@ -15,7 +15,7 @@ $context = array(
 );
 
 // Create a Websocket server with ssl context.
-$ws_worker = new Worker("websocket://0.0.0.0:19910/blog", $context);
+$ws_worker = new Worker("websocket://0.0.0.0:19910", $context);
 
 // Enable SSL. WebSocket+SSL means that Secure WebSocket (wss://). 
 // The similar approaches for Https etc.
