@@ -230,7 +230,11 @@ function login($post)
     if (M('device')->add($data)===false) {
         ret_status($return, -4, '数据库更新出错');
     }
-    session_start();
+    if ($post['isRemember'] == 'true') {
+        start_session(RememberTime);
+    } else {
+        session_start();
+    }
     $_SESSION['u_id']=$get_user['u_id'];
     $_SESSION['username']=$post['username'];
     $_SESSION['email']=$get_user['email'];
@@ -1291,4 +1295,20 @@ function ret_status(&$return, $status = 0, $error = '')
     $return['status']=$status;
     $return['error']=$error;
     exit(json_encode($return));
+}
+
+function start_session($expire = 0)
+{
+    if ($expire == 0) {
+        $expire = ini_get('session.gc_maxlifetime');
+    } else {
+        ini_set('session.gc_maxlifetime', $expire);
+    }
+    if (empty($_COOKIE['PHPSESSID'])) {
+        session_set_cookie_params($expire);
+        session_start();
+    } else {
+        session_start();
+        setcookie('PHPSESSID', session_id(), time() + $expire, '/');
+    }
 }
