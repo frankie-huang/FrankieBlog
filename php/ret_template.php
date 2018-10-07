@@ -28,7 +28,7 @@ function ret_template($blog_id, $content)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
@@ -234,7 +234,7 @@ EOF;
         toastr.options.positionClass = 'toast-bottom-right';
         var testEditor;
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_blog.js"></script>
@@ -278,7 +278,7 @@ function ret_tmp_template($blog_id)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
@@ -426,7 +426,7 @@ function ret_tmp_template($blog_id)
         toastr.options.positionClass = 'toast-bottom-right';
     </script>
     <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_tmpblog.js"></script>

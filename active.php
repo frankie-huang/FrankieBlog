@@ -3,7 +3,7 @@ header('content-type:text/html;charset=utf-8');
 require_once('Model/PDO_MySQL.class.php');
 require_once('Model/config.php');
 echo '<link rel="icon" href="Public/img/frankie.ico" type="image/x-icon">';
-echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">';
+echo '<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">';
 echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
 $script1=<<<EOF
 <script>
