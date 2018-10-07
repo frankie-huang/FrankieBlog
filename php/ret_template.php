@@ -15,7 +15,7 @@ function ret_template($blog_id, $content)
 
     <title>Frankie's Blog</title>
 
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href="../../Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <script src="../../Public/js/ie-emulation-modes-warning.js"></script>
@@ -24,12 +24,12 @@ function ret_template($blog_id, $content)
     <link href="../../Public/css/comment.css" rel="stylesheet">
 
     <!-- toastr CSS JS -->
-    <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
     <link rel="stylesheet" href="../../editor.md/css/editormd.css" />
@@ -234,7 +234,7 @@ EOF;
         toastr.options.positionClass = 'toast-bottom-right';
         var testEditor;
     </script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_blog.js"></script>
@@ -266,7 +266,7 @@ function ret_tmp_template($blog_id)
 
     <title>Frankie's Blog</title>
 
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <link href="../../Public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <script src="../../Public/js/ie-emulation-modes-warning.js"></script>
@@ -274,12 +274,12 @@ function ret_tmp_template($blog_id)
     <link href="../../Public/css/blog.css" rel="stylesheet">
     
     <!-- toastr CSS JS -->
-    <link href="https://cdn.bootcss.com/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-    <script src="https://cdn.bootcss.com/toastr.js/latest/toastr.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="../../editor.md/examples/css/style.css" /> -->
     <link rel="stylesheet" href="../../editor.md/css/editormd.css" />
@@ -426,7 +426,7 @@ function ret_tmp_template($blog_id)
         toastr.options.positionClass = 'toast-bottom-right';
     </script>
     <!-- Bootstrap JavaScript -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../../Public/js/ie10-viewport-bug-workaround.js"></script>
     <script src="../../Public/js/footer.js"></script>
     <script src="../../Public/js/islogin_tmpblog.js"></script>
