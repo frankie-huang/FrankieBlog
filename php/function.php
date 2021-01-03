@@ -863,7 +863,7 @@ function get_comment($post)
     if ($get_comment === false) {
         ret_status($return, -1, "数据库查询出错(评论表)");
     }
-    $comment_number = count($get_comment);
+    $comment_number = $get_comment == NULL ? 0 : count($get_comment);
     $return['comment_number']=$comment_number;
     $reply = M('reply');
     for ($i=0; $i<$comment_number; $i++) {
